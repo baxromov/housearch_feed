@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realty-feed>
+    <generation-date>2022-11-01T10:00:00+03:00</generation-date> <!-- now -->
+    <offer internal-id="ab10543"> <!-- listing: reference_num -->
+        <category>apartment</category>
+        <creation-date>2018-02-25T07:50:00+03:00</creation-date> <!-- updated_at -->
+        <location>
+            <address locale="en">United Arab Emirates, Dubai, <!-- parent_cominity -->, <!-- ? --></address>
+            <latitude>25.18344</latitude>
+            <longitude>55.25647</longitude>
+        </location>
+
+        <!-- listing: agent_id -->
+        <sales-agent>
+            <name><![CDATA[Ruslan M.]]></name>
+            <image><![CDATA[https://avatars.mds.yandex.net/get-lpc/1370085/5fc07953-6754-4767-8fcb-5bf51168c9d9/lqip_q70]]></image>
+        </sales-agent>
+        
+        
+        <price>
+            <value>250000</value>
+            <currency>USD</currency>
+        </price>
+
+        <!-- property_type: size -->
+        <area>
+            <value>65</value>
+            <unit>sqm</unit>
+        </area>
+
+        <room-space>
+            <value>16</value>
+            <unit>sqm</unit>
+        </room-space>
+        <room-space>
+            <value>18</value>
+            <unit>sqm</unit>
+        </room-space>
+        <rooms>2</rooms>
+
+
+
+        
+        <image tag="plan">http://www.developer.ru/images/plans/000001289.jpg</image>
+        <image>http://www.developer.ru/images/plans/0000013.jpg</image>
+
+        <!-- static -->
+        <renovation>clean</renovation>
+        <!-- static -->
+
+        <description locale="ru"><![CDATA[Просторная квартира]]></description>
+        <description locale="en"><![CDATA[Big apartments]]></description>
+
+        <bedrooms>2</bedrooms>
+        <bathrooms>2</bathrooms>
+
+        <floor>2</floor>
+        <floors-total>5</floors-total>
+        <completion-year>2020</completion-year>
+        <completion-quarter>3</completion-quarter>
+        <lift>true</lift>
+        <ceiling-height>
+            <value>2.7</value>
+            <unit>meter</unit>
+        </ceiling-height> 
+        <living-space>
+            <value>34.00</value>
+            <unit>sqm</unit>
+        </living-space>
+        <kitchen-space>
+            <value>12</value>
+            <unit>sqm</unit>
+        </kitchen-space>
+        <balcony>2</balcony>
+        <studio>false</studio>
+
+        <!-- static -->
+        <building-state>hand-over</building-state>
+        <!-- <complex-id>3061607</complex-id>  -->
+        <!-- <building-id>3</building-id> -->
+        <!-- <virtual-tour>   
+            <model-url>https://my.matterport.com/show/?m=vDRVV9w</model-url>
+            <provider>matterport</provider>
+            <preview-url>https://view3D-vDRVV9w.jpg</preview-url>
+        </virtual-tour> -->
+        <!-- <youtube-video-review>http://youtu.be/iwGFalTRHDA</youtube-video-review> -->
+        <facility>gym</facility> <!-- listing property amenitis: amenities -->
+        <facility>water pool</facility>
+        <facility>car charge</facility>
+        <facility>guarded building</facility>
+        <facility>parking</facility>
+    </offer>
+</realty-feed>
