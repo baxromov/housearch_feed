@@ -1,13 +1,15 @@
 import typing
+from datetime import datetime
 from typing import List
 
-from app.api.schemas.housearch_feed import data
+from app.api.schemas.housearch_feed import data, datum
 from app.api.utils.dict2xml import dict_to_xml
 from fastapi import APIRouter, Request, Body, Depends
 from starlette.responses import Response
 
 from app.models.housearch_feed import PropertyTypePublic, PropertyTypeBase
 from app.db.repositories.housearch_feed import PropertyTypeRepository
+from app.db.repositories.listing import ListingRepository
 from app.api.dependencies.database import get_repository
 
 router = APIRouter()
@@ -22,7 +24,20 @@ class XmlResponse(Response):
 
 @router.get("/")
 async def get_feed(request: Request,
-                   property_type: PropertyTypeRepository = Depends(get_repository(PropertyTypeRepository))):
-    property_type_query = await property_type.get_property_type()
-    data['realty-feed']['offer']['bathrooms'] = property_type_query.bathrooms
-    return XmlResponse(data)
+                   listing: ListingRepository = Depends(get_repository(ListingRepository))):
+    listing_query = await listing.get_listing()
+
+    return XmlResponse(foo(listing_query))
+
+
+def foo(query):
+    listing = data
+    listing_item = datum['realty-feed']
+    listing_offer = datum['realty-feed']['offer']
+    for item in query:
+        listing_item['generation-date'] = datetime.now()
+        listing_offer['@internal-id'] = item.ref_num
+        listing_offer['category'] = item.category
+        listing_offer['creation-date'] = item.updated_at
+        listing['listing'].append(listing_item)
+    return listing

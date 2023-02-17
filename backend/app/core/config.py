@@ -9,11 +9,11 @@ API_PREFIX = "/api"
 
 database = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'axcapitaldb',
-    'USER': 'alex',
-    'PASSWORD': 'WBfEuwEb4B',
-    'HOST': 'axcapitaldb.citioj9smjkf.eu-west-1.rds.amazonaws.com',
-    'PORT': 5432,
+    'NAME': 'prisma',
+    'USER': 'prisma',
+    'PASSWORD': 'prismaJ82hHD21',
+    'HOST': '162.55.34.2',
+    'PORT': 5533,
     'CONN_MAX_AGE': 60 * 10,  # 10 minutes, don't close connection
 }
 

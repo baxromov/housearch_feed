@@ -1,0 +1,17 @@
+select id,
+       title,
+       offering_type,
+       agent_id,
+       ref_num,
+       updated_at,
+       community_id,
+       city,
+       description,
+       state,
+       exclusivity,
+       listing_type,
+       furnished,
+       is_studio,
+       category,
+       property_type_id
+from listing where city like '%Dubai%' and listing_type='axcapital' and state='APPROVED';
