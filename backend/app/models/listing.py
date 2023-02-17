@@ -5,41 +5,30 @@ from app.models.core import IDModelMixin, CoreModel
 
 
 class ListingBase(CoreModel):
-    id: int
+    id: Optional[int] = None
     title: Optional[str] = None
     offering_type: Optional[str] = None
-    agent_id: Optional[int] = None
     ref_num: Optional[str] = None
     updated_at: Optional[datetime] = None
-    community_id: Optional[int] = None
     city: Optional[str] = None
     description: Optional[str] = None
-    state: Optional[str] = None
-    exclusivity: Optional[str] = None
     listing_type: Optional[str] = None
     furnished: Optional[bool] = None
     is_studio: Optional[bool] = None
     category: Optional[str] = None
-    property_type_id: Optional[int] = None
+    address: Optional[str] = None
+    lon: Optional[str] = None
+    lat: Optional[str] = None
+    bedrooms: Optional[int] = None
+    bathrooms: Optional[int] = None
+    full_name: Optional[str] = None  # sales-agent
+    photo: Optional[str] = None
+    price: Optional[float] = None
+    size: Optional[float] = None
 
 
 class ListingInDB(IDModelMixin, ListingBase):
-    id: int
-    title: Optional[str] = None
-    offering_type: Optional[str] = None
-    agent_id: Optional[int] = None
-    ref_num: Optional[str] = None
-    updated_at: Optional[datetime] = None
-    community_id: Optional[int] = None
-    city: Optional[str] = None
-    description: Optional[str] = None
-    state: Optional[str] = None
-    exclusivity: Optional[str] = None
-    listing_type: Optional[str] = None
-    furnished: Optional[bool] = None
-    is_studio: Optional[bool] = None
-    category: Optional[str] = None
-    property_type_id: Optional[int] = None
+    ...
 
 
 class ListingPublic(IDModelMixin, ListingBase):
