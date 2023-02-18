@@ -7,13 +7,22 @@ PROJECT_NAME = "Lesson 2"
 VERSION = "1.0.0"
 API_PREFIX = "/api"
 
+# database = {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'prisma',
+#     'USER': 'prisma',
+#     'PASSWORD': 'prismaJ82hHD21',
+#     'HOST': '162.55.34.2',
+#     'PORT': 5533,
+#     'CONN_MAX_AGE': 60 * 10,  # 10 minutes, don't close connection
+# }
 database = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'prisma',
-    'USER': 'prisma',
-    'PASSWORD': 'prismaJ82hHD21',
-    'HOST': '162.55.34.2',
-    'PORT': 5533,
+    'NAME': 'ax_prisma',
+    'USER': 'postgres',
+    'PASSWORD': 'postgres',
+    'HOST': 'localhost',
+    'PORT': 5432,
     'CONN_MAX_AGE': 60 * 10,  # 10 minutes, don't close connection
 }
 

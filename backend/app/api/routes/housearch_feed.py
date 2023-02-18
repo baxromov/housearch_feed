@@ -3,7 +3,7 @@ from datetime import datetime
 
 from fastapi import APIRouter, Request, Depends
 from starlette.responses import Response
-
+import json
 from app.api.dependencies.database import get_repository
 from app.api.schemas.housearch_feed import data, datum
 from app.api.utils.dict2xml import dict_to_xml
@@ -32,6 +32,15 @@ def foo(query):
     listing = data
     listing_temp = datum['realty-feed']
     for item in query:
+        room_space = [
+            {
+                'value': i.get('size', None),
+                'unit': 'sqm'
+            } for i in list(json.loads(item.size_rooms))] if item.size_rooms else [
+            {
+                'value': None,
+                'unit': 'sqm'
+            }]
         listing_new = {
             'generation-date': datetime.now(),
             'offer': {
@@ -58,17 +67,8 @@ def foo(query):
                     'value': item.size,
                     'unit': 'sqm'
                 },
-                'room-space': [
-                    {
-                        'value': '16',
-                        'unit': 'sqm'
-                    },
-                    {
-                        'value': '18',
-                        'unit': 'sqm'
-                    }
-                ],
-                'rooms': '2',
+                'room-space': room_space,
+                'rooms': len(json.loads(item.size_rooms)) if item.size_rooms else 0,
                 'image': [
                     {
                         '@tag': 'plan',
@@ -80,15 +80,15 @@ def foo(query):
                 'description': [
                     {
                         '@locale': 'ru',
-                        '#text': 'Просторная квартира'
+                        '#text': item.description_ru
                     },
                     {
                         '@locale': 'en',
-                        '#text': 'Big apartments'
+                        '#text': item.description_en
                     }
                 ],
-                'bedrooms': '2',
-                'bathrooms': '2',
+                'bedrooms': item.bedrooms,
+                'bathrooms': item.bathrooms,
                 'floor': '2',
                 'floors-total': '5',
                 'completion-year': '2020',
@@ -106,7 +106,7 @@ def foo(query):
                     'value': '12',
                     'unit': 'sqm'
                 }, 'balcony': '2',
-                'studio': 'false',
+                'studio': item.is_studio,
                 'building-state': 'hand-over',
                 'facility': ['gym', 'water pool', 'car charge', 'guarded building', 'parking']
             }

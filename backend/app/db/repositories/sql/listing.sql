@@ -4,7 +4,8 @@ select l.id,
        l.ref_num,
        l.updated_at,
        l.city,
-       l.description,
+       l.description_ru,
+       l.description_en,
        l.listing_type,
        l.furnished,
        l.is_studio,
@@ -17,7 +18,8 @@ select l.id,
        u.full_name,
        u.photo,
        pt.price,
-       pt.size /* area */
+       pt.size /* area */,
+       pt.size_rooms
 from listing l
 join community c on l.community_id = c.id
 join property_types as pt on pt.id = l.property_type_id

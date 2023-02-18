@@ -11,7 +11,8 @@ class ListingBase(CoreModel):
     ref_num: Optional[str] = None
     updated_at: Optional[datetime] = None
     city: Optional[str] = None
-    description: Optional[str] = None
+    description_en: Optional[str] = None
+    description_ru: Optional[str] = None
     listing_type: Optional[str] = None
     furnished: Optional[bool] = None
     is_studio: Optional[bool] = None
@@ -25,6 +26,7 @@ class ListingBase(CoreModel):
     photo: Optional[str] = None
     price: Optional[float] = None
     size: Optional[float] = None
+    size_rooms: Optional[str]
 
 
 class ListingInDB(IDModelMixin, ListingBase):
